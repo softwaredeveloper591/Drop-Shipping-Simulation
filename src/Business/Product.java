@@ -1,3 +1,4 @@
+package Business;
 
 public class Product {
 private String id;
@@ -7,11 +8,12 @@ private int numberOfReviews;
 private int price;
 
 
-public Product(String id, String title, Double rate, int numberOfReviews) {
+public Product(String id, String title, Double rate, int numberOfReviews,int price) {
 	this.id = id;
 	this.title = title;
 	this.rate = rate;
 	this.numberOfReviews = numberOfReviews;
+	this.price=price;
 }
 
 
