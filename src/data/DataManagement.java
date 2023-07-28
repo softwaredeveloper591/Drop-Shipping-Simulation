@@ -14,12 +14,18 @@ public class DataManagement {
 		String[] customerStrings= FileIO.readFrom(pathToCustomers);
 		int numberOfCustomers=0;
 		for(String eachCustomerString: customerStrings) {
-			StringTokenizer tokenizer= new StringTokenizer(eachCustomerString);
-			tempCustomers[numberOfCustomers]= new Customer(tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
+			StringTokenizer tokenizer= new StringTokenizer(eachCustomerString, ",\n");
+			String id =tokenizer.nextToken();
+			String name=tokenizer.nextToken();
+			String email =tokenizer.nextToken();
+			String country=tokenizer.nextToken();
+			String address=tokenizer.nextToken();
+			
+			tempCustomers[numberOfCustomers]= new Customer(id,name,email,country,address);
 			numberOfCustomers++;
 		}
 		actualCustomers=new Customer[numberOfCustomers];
-		for(int i=0; i<=numberOfCustomers; i++) {
+		for(int i=0; i<numberOfCustomers; i++) {
 			actualCustomers[i]=tempCustomers[i];
 		}
 		return actualCustomers;

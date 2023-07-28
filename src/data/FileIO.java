@@ -12,8 +12,10 @@ public class FileIO {
 		int count=0;
 		try {
 			read = new Scanner(new FileInputStream(path));
-			while(read.hasNext()) {
-				temporaryArray[count]=read.next();
+			read.nextLine();    //getting rid of first line because info in the files starts at second line
+			while(read.hasNextLine()) {
+				temporaryArray[count]=read.nextLine();
+				System.out.println(temporaryArray[count]);
 				count++;
 				
 			}
@@ -21,9 +23,9 @@ public class FileIO {
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found: "+ path);
 		}
-		actualArray= new String[count-1];
-		for(int i=1; i<=count;i++) {  //it begins from 1 because the necessary info in the file starts at second line
-			actualArray[i-1]=temporaryArray[i];
+		actualArray= new String[count];
+		for(int i=0; i<count;i++) {  
+			actualArray[i]=temporaryArray[i];
 		}
 		return actualArray;
 	}
