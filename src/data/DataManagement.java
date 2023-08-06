@@ -37,12 +37,17 @@ public class DataManagement {
 		String[] productStrings= FileIO.readFrom(pathToProducts);
 		int numberOfProducts=0;
 		for(String eachProductString: productStrings) {
-			StringTokenizer tokenizer= new StringTokenizer(eachProductString);
-			tempProducts[numberOfProducts]= new Product(tokenizer.nextToken(), tokenizer.nextToken(),Double.parseDouble(tokenizer.nextToken()), Integer.parseInt(tokenizer.nextToken()), Integer.parseInt(tokenizer.nextToken()));
+			StringTokenizer tokenizer= new StringTokenizer(eachProductString,",");
+			String id=tokenizer.nextToken();
+			String title=tokenizer.nextToken();
+			Double rate=Double.parseDouble(tokenizer.nextToken());
+			int numberOfReviews=Integer.parseInt(tokenizer.nextToken());
+			int price=Integer.parseInt(tokenizer.nextToken());
+			tempProducts[numberOfProducts]= new Product(id, title,rate,numberOfReviews ,price );
 			numberOfProducts++;
 		}
 		actualProducts=new Product[numberOfProducts];
-		for(int i=0; i<=numberOfProducts; i++) {
+		for(int i=0; i<numberOfProducts; i++) {
 			actualProducts[i]=tempProducts[i];
 		}
 		return actualProducts;
@@ -55,8 +60,10 @@ public class DataManagement {
 		String[] salesStrings= FileIO.readFrom(pathToSales);
 		int numberOfSaless=0;
 		for(String eachSalesString: salesStrings) {
-			StringTokenizer tokenizer= new StringTokenizer(eachSalesString);
+			System.out.println(eachSalesString);
+			StringTokenizer tokenizer= new StringTokenizer(eachSalesString,",");
 			String salesID=tokenizer.nextToken();
+//			System.out.println(salesID);
 			String customerID= tokenizer.nextToken();
 			String productID=tokenizer.nextToken();
 			String salesDate=tokenizer.nextToken();
@@ -66,7 +73,7 @@ public class DataManagement {
 			numberOfSaless++;
 		}
 		actualSales=new Sales[numberOfSaless];
-		for(int i=0; i<=numberOfSaless; i++) {
+		for(int i=0; i<numberOfSaless; i++) {
 			actualSales[i]=tempSaless[i];
 		}
 		return actualSales;

@@ -46,5 +46,8 @@ public void setSalesDate(String salesDate) {	this.salesDate = salesDate;}
 public double getSalesPrice() {	return salesPrice;}
 public void setSalesPrice(int salesPrice) {	this.salesPrice = salesPrice;}
 
+public int getProfitInInteger() {
+	return (int)salesPrice-product.getPrice();
+}
 
 }

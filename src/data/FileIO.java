@@ -15,7 +15,6 @@ public class FileIO {
 			read.nextLine();    //getting rid of first line because info in the files starts at second line
 			while(read.hasNextLine()) {
 				temporaryArray[count]=read.nextLine();
-				System.out.println(temporaryArray[count]);
 				count++;
 				
 			}

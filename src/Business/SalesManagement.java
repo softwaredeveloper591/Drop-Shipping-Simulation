@@ -10,4 +10,8 @@ public class SalesManagement {
 		salesForAllSupplierSales[2]=salesOfSupplier3;
 	}	
 	
+	public Sales[][] getSalesForAllSupplierSales(){   // Burada bir privacy leak düzeltmesi gerekli
+		return salesForAllSupplierSales;
+	}
+	
 }

@@ -12,7 +12,9 @@ public class DropShippingApp {
 		Sales[] salesOfSupplier1= DataManagement.loadSalesToAnArray(customers, supplier_1,"src/resources/S1_Sales.csv");
 		Sales[] salesOfSupplier2= DataManagement.loadSalesToAnArray(customers, supplier_2,"src/resources/S2_Sales.csv");
 		Sales[] salesOfSupplier3= DataManagement.loadSalesToAnArray(customers, supplier_3,"src/resources/S3_Sales.csv");
-		SalesManagement salesManagement= new SalesManagement(salesOfSupplier1, salesOfSupplier2, salesOfSupplier3);
+		SalesManagement salesManagement = new SalesManagement(salesOfSupplier1, salesOfSupplier2, salesOfSupplier3);
+		
+		SalesQuery.mostProfitableProduct(salesManagement);	
 
 	}
 }
