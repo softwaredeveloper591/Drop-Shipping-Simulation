@@ -15,6 +15,7 @@ public class DropShippingApp {
 		SalesManagement salesManagement = new SalesManagement(salesOfSupplier1, salesOfSupplier2, salesOfSupplier3);
 		
 		SalesQuery.mostProfitableProduct(salesManagement);	
-
+		SalesQuery.mostExpensiveProduct(salesManagement);
+		SalesQuery.customerWhoPurchasedMostProduct(customers);
 	}
 }

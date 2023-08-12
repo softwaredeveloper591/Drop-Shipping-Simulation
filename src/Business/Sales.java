@@ -10,7 +10,8 @@ private double salesPrice;
 
 public Sales(String id, Customer customer, Product product, String salesDate) {
 	this.id = id;
-	this.customer = customer;
+	customer.increaseNumberOfPurchases();
+	this.customer=customer;
 	this.product = product;
 	this.salesDate = salesDate;
 	this.salesPrice= calculateSalesPrice(product);
@@ -49,5 +50,6 @@ public void setSalesPrice(int salesPrice) {	this.salesPrice = salesPrice;}
 public int getProfitInInteger() {
 	return (int)salesPrice-product.getPrice();
 }
+
 
 }

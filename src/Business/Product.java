@@ -40,8 +40,8 @@ public Product(Product otherProduct) {
 	this.numberOfReviews = otherProduct.numberOfReviews;
 	this.price = otherProduct.price;
 }
-
-
-
+public String toString() {
+	return id+" "+title+" "+ rate+ " "+ numberOfReviews+" "+ price;
+}
 
 }

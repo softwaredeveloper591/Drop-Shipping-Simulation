@@ -57,13 +57,11 @@ public class DataManagement {
 		Product[] products=supplier.getProducts();
 		Sales[] tempSaless = new Sales[100];
 		Sales[] actualSales;
-		String[] salesStrings= FileIO.readFrom(pathToSales);
+		String[] salesStrings = FileIO.readFrom(pathToSales);
 		int numberOfSaless=0;
 		for(String eachSalesString: salesStrings) {
-			System.out.println(eachSalesString);
 			StringTokenizer tokenizer= new StringTokenizer(eachSalesString,",");
 			String salesID=tokenizer.nextToken();
-//			System.out.println(salesID);
 			String customerID= tokenizer.nextToken();
 			String productID=tokenizer.nextToken();
 			String salesDate=tokenizer.nextToken();
@@ -84,9 +82,9 @@ public class DataManagement {
 		Customer foundCustomer = null;
 		for(Customer customer:customers) {
 			if (customerID.equals(customer.getId()))
-				foundCustomer=new Customer(customer);
+				foundCustomer=customer;
 		}
-		return new Customer(foundCustomer);
+		return foundCustomer;
 	}
 	
 	private static Product findProduct(String productID, Product[] products) {
