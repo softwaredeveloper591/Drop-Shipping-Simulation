@@ -16,7 +16,7 @@ public class SalesQuery {
 				}
 			}
 		}
-		System.out.println("1-) "+ maxProfitableSales.getProduct().toString()+"-> "+ maxProfitableSales.getProfitInInteger()+" profit");
+		System.out.println("1-) "+ maxProfitableSales.getProduct().toString()+"-> "+ maxProfitableSales.getProfitInInteger()+" TL profit");
 	}
 	
 	public static void mostExpensiveProduct(SalesManagement salesManagement) {
@@ -47,4 +47,24 @@ public class SalesQuery {
 		}
 		System.out.println("3-) "+maxCustomer.toString());
 	}
+	
+	public static void totalProfitFromAllSales() {System.out.println("4-) "+Sales.getTotalProfitFromAllSales()+" TL");}
+	
+	public static void leastProfitableProductofSupplier(SalesManagement salesManagement, int supplierNo) {
+		Sales[] salesArrayOfSupplier=salesManagement.getSalesForAllSupplierSales()[supplierNo-1];
+		int leastProfit= salesArrayOfSupplier[0].getProfitInInteger();
+		Sales leastProfitableSales=null;
+		
+		
+		for (Sales sales : salesArrayOfSupplier) {
+			int profit=sales.getProfitInInteger();
+			if (profit<leastProfit) {
+				leastProfit=profit;
+				leastProfitableSales=sales;
+			}
+		}
+		
+		System.out.println("5-) "+ leastProfitableSales.getProduct().toString()+"-> "+ leastProfitableSales.getProfitInInteger()+" TL profit");
+	}
+	
 }

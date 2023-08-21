@@ -1,11 +1,14 @@
 package Business;
 
 public class Sales {
-private String id;
-private Customer customer;
-private Product product;
-private String salesDate;
-private double salesPrice;
+	
+	private String id;
+	private Customer customer;
+	private Product product;
+	private String salesDate;
+	private double salesPrice;
+	private int profit;
+	private static int totalProfitFromAllSales;
 
 
 public Sales(String id, Customer customer, Product product, String salesDate) {
@@ -15,6 +18,8 @@ public Sales(String id, Customer customer, Product product, String salesDate) {
 	this.product = product;
 	this.salesDate = salesDate;
 	this.salesPrice= calculateSalesPrice(product);
+	this.profit=(int)salesPrice-product.getPrice();
+	Sales.totalProfitFromAllSales+=profit;
 }
 
 public Sales(Sales otherSales) {
@@ -23,6 +28,8 @@ public Sales(Sales otherSales) {
 	this.product = new Product(otherSales.product);
 	this.salesDate = otherSales.salesDate;
 	this.salesPrice = otherSales.salesPrice;
+	this.profit=otherSales.profit;
+	
 }
 
 private double calculateSalesPrice(Product product) {
@@ -47,9 +54,8 @@ public void setSalesDate(String salesDate) {	this.salesDate = salesDate;}
 public double getSalesPrice() {	return salesPrice;}
 public void setSalesPrice(int salesPrice) {	this.salesPrice = salesPrice;}
 
-public int getProfitInInteger() {
-	return (int)salesPrice-product.getPrice();
-}
+public int getProfitInInteger() {return profit;}
 
+public static int getTotalProfitFromAllSales() {return totalProfitFromAllSales;}
 
 }

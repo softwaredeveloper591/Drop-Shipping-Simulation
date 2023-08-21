@@ -17,5 +17,7 @@ public class DropShippingApp {
 		SalesQuery.mostProfitableProduct(salesManagement);	
 		SalesQuery.mostExpensiveProduct(salesManagement);
 		SalesQuery.customerWhoPurchasedMostProduct(customers);
+		SalesQuery.totalProfitFromAllSales();
+		SalesQuery.leastProfitableProductofSupplier(salesManagement,1);
 	}
 }
