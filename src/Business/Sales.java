@@ -8,6 +8,9 @@ public class Sales {
 	private String salesDate;
 	private double salesPrice;
 	private int profit;
+	/**
+	 * This attribute helps us keep <b>total profit from all Sales</b>
+	 */
 	private static int totalProfitFromAllSales;
 
 
@@ -24,14 +27,18 @@ public Sales(String id, Customer customer, Product product, String salesDate) {
 
 public Sales(Sales otherSales) {
 	this.id = otherSales.id;
-	this.customer = new Customer(otherSales.customer);
+	this.customer = new Customer(otherSales.customer);  // I used copy constructors not to cause privacy leaks
 	this.product = new Product(otherSales.product);
 	this.salesDate = otherSales.salesDate;
 	this.salesPrice = otherSales.salesPrice;
 	this.profit=otherSales.profit;
 	
 }
-
+/**
+ * This method <b>calculates sales price </b>
+ * @param product
+ * @return price
+ */
 private double calculateSalesPrice(Product product) {
 	double price= product.getPrice()+((product.getRate())/5.0*100)*product.getNumberOfReviews();	
 	return price;

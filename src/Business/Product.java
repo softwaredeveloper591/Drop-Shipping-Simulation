@@ -1,11 +1,9 @@
 package Business;
 
 public class Product {
-private String id;
-private String title;
+private String id,title;
 private Double rate;
-private int numberOfReviews;
-private int price;
+private int numberOfReviews,price;
 
 
 public Product(String id, String title, Double rate, int numberOfReviews,int price) {

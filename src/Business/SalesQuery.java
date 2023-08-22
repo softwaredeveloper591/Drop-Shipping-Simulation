@@ -2,7 +2,10 @@ package Business;
 
 public class SalesQuery {
 	
-	
+	/**
+	 * calculates most profitable product by visiting all the sales in SalesManagement
+	 * @param salesManagement
+	 */
 	public static void mostProfitableProduct(SalesManagement salesManagement) {
 		int maxProfit=0;
 		Sales maxProfitableSales=null;

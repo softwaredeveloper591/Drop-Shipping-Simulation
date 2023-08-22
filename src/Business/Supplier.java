@@ -1,7 +1,7 @@
 package Business;
 
 public class Supplier {
-	Product[] products;
+	private Product[] products;
 	
 	public Supplier(Product[] products) {
 		this.products= products;

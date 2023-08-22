@@ -1,12 +1,11 @@
 package Business;
 
 public class Customer {
-	private String id;
-	private String name;
-	private String email;
-	private String country;
-	private String address;
-	private int numberOfPurchases;
+	private String id,name,email,country,address;
+	/**
+	 * this attribute is needed for a method in SalesQuery class to find the customer who purchased the most products 
+	 */
+	private int numberOfPurchases; 
 
 public Customer(String id, String name, String email, String country, String address) {
 	this.id = id;
