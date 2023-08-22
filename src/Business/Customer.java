@@ -1,10 +1,11 @@
+package Business;
 
 public class Customer {
-	private String id;
-	private String name;
-	private String email;
-	private String country;
-	private String address;
+	private String id,name,email,country,address;
+	/**
+	 * this attribute is needed for a method in SalesQuery class to find the customer who purchased the most products 
+	 */
+	private int numberOfPurchases; 
 
 public Customer(String id, String name, String email, String country, String address) {
 	this.id = id;
@@ -12,6 +13,7 @@ public Customer(String id, String name, String email, String country, String add
 	this.email = email;
 	this.country = country;
 	this.address = address;
+	this.numberOfPurchases=0;
 }
 
 public String getId() {	return id;}
@@ -29,6 +31,8 @@ public void setCountry(String country) {	this.country = country;}
 public String getAddress() {	return address;}
 public void setAddress(String address) {	this.address = address;}
 
+public int getNumberOfPurchases() {	return numberOfPurchases;}
+public void increaseNumberOfPurchases() {numberOfPurchases++;}
 
 public Customer(Customer otherCustomer) {
 	this.id = otherCustomer.id;
@@ -36,6 +40,12 @@ public Customer(Customer otherCustomer) {
 	this.email = otherCustomer.email;
 	this.country = otherCustomer.country;
 	this.address = otherCustomer.address;
+	this.numberOfPurchases=otherCustomer.numberOfPurchases;
+}
+
+public String toString() {
+	return  id + " " + name + " " + email + " " + country + " "
+			+ address + " -> " + numberOfPurchases + " purchases";
 }
 
 }

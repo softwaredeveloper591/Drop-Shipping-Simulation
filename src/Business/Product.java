@@ -1,17 +1,17 @@
+package Business;
 
 public class Product {
-private String id;
-private String title;
+private String id,title;
 private Double rate;
-private int numberOfReviews;
-private int price;
+private int numberOfReviews,price;
 
 
-public Product(String id, String title, Double rate, int numberOfReviews) {
+public Product(String id, String title, Double rate, int numberOfReviews,int price) {
 	this.id = id;
 	this.title = title;
 	this.rate = rate;
 	this.numberOfReviews = numberOfReviews;
+	this.price=price;
 }
 
 
@@ -38,8 +38,8 @@ public Product(Product otherProduct) {
 	this.numberOfReviews = otherProduct.numberOfReviews;
 	this.price = otherProduct.price;
 }
-
-
-
+public String toString() {
+	return id+" "+title+" "+ rate+ " "+ numberOfReviews+" "+ price;
+}
 
 }
